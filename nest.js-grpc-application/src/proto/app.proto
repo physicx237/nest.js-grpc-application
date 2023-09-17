@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package app;
+
+service DataService {
+  rpc CreateCategory (CategoryMessage) returns (CategoryMessage) {}
+  rpc GetCategories (GetCategories) returns (Categories) {}
+  rpc EditCategory (Category) returns (Category) {}
+  rpc DeleteCategory (CategoryId) returns (DeleteCategory) {}
+  rpc CreateDocument (DocumentMessage) returns (DocumentMessage) {}
+  rpc GetDocuments (GetDocuments) returns (Documents) {}
+  rpc EditDocument (Document) returns (Document) {}
+  rpc DeleteDocument (DocumentId) returns (DeleteDocument) {}
+}
+
+message Category {
+  int32 id = 1;
+  string type = 2;
+  string attribute = 3;
+  bool mark = 4;
+}
+
+message CategoryMessage {
+  Category category = 1;
+}
+
+message CategoryId {
+  int32 id = 1;
+}
+
+message Categories {
+  repeated Category categories = 1;
+}
+
+message GetCategories {}
+
+message DeleteCategory {
+  string message = 1;
+}
+
+message Document {
+  int32 id = 1;
+  string documentType = 2;
+  string firstAttribute = 3;
+  string secondAttribute = 4;
+  bool mark = 5;
+}
+
+message DocumentMessage {
+  Document document = 1;
+}
+
+message DocumentId {
+  int32 id = 1;
+}
+
+message Documents {
+  repeated Document documents = 1;
+}
+
+message GetDocuments {}
+
+message DeleteDocument {
+  string message = 1;
+}
