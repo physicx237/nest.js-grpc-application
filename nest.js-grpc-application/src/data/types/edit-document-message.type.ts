@@ -1,5 +1,5 @@
-import { UpdateResult } from "typeorm"
+import { Document } from "../entities/document.entity"
 
 export type EditDocumentMessage = {
-    document: UpdateResult
+    document: Document
 }

@@ -1,5 +1,5 @@
 import { Category } from "../entities/category.entity";
 
-export interface EditCategoryDto {
+export interface EditCategoryDtoMessage {
     category: Category
 }

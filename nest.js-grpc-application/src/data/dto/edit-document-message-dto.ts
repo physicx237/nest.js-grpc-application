@@ -1,5 +1,5 @@
 import { Document } from "../entities/document.entity";
 
-export interface EditDocumentDto {
+export interface EditDocumentDtoMessage {
     document: Document
 }

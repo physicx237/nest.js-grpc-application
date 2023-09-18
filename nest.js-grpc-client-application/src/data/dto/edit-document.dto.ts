@@ -1,5 +1,11 @@
-import { CreateDocumentDto } from "./create-document.dto";
 
 export interface EditDocumentDto {
-    document: CreateDocumentDto
+    document: {
+        id: number,
+        categoryId: number,
+        documentType: string,
+        firstAttribute: string | null,
+        secondAttribute: string | null,
+        mark: boolean
+    }
 }

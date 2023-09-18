@@ -38,6 +38,7 @@ export class DataController {
     editCategory(@Body() category: EditCategoryDto): Observable<EditCategoryMessage> {
         return this.dataService.editCategory({
             category: {
+                id: category.category.id,
                 type: category.category.type,
                 attribute: category.category.attribute,
                 mark: category.category.mark
@@ -74,11 +75,12 @@ export class DataController {
     editDocument(@Body() document: EditDocumentDto): Observable<EditDocumentMessage> {
         return this.dataService.editDocument({
             document: {
+                id: document.document.id,
                 documentType: document.document.documentType,
                 firstAttribute: document.document.firstAttribute,
                 secondAttribute: document.document.secondAttribute,
                 mark: document.document.mark,
-                categoryId: 0
+                categoryId: document.document.categoryId
             }
         });
     }

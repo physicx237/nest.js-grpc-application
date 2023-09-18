@@ -10,8 +10,8 @@ import { CreateDocumentMessage } from './types/create-document-message.type';
 import { GetDocumentsMessage } from './types/get-documents-message.type';
 import { EditDocumentMessage } from './types/edit-document-message.type';
 import { DeleteDocumentMessage } from './types/delete-document-message.type';
-import { EditCategoryDto } from './dto/edit-category.dto';
-import { EditDocumentDto } from './dto/edit-document.dto';
+import { EditDocumentDtoMessage } from './dto/edit-document-message-dto';
+import { EditCategoryDtoMessage } from './dto/edit-category-message.dto';
 
 @Controller('data')
 export class DataController {
@@ -30,9 +30,8 @@ export class DataController {
     }
 
     @GrpcMethod('DataService', 'EditCategory')
-    async editCategory(categoryEditDto: EditCategoryDto, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<EditCategoryMessage> {
-        const category = await this.dataService.editCategory(categoryEditDto)
-        return { category: category }
+    async editCategory(editCategoryDtoMessage: EditCategoryDtoMessage, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<EditCategoryMessage> {
+        return this.dataService.editCategory(editCategoryDtoMessage)
     }
 
     @GrpcMethod('DataService', 'DeleteCategory')
@@ -54,9 +53,8 @@ export class DataController {
     }
 
     @GrpcMethod('DataService', 'EditDocument')
-    async editDocument(documentEditDto: EditDocumentDto, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<EditDocumentMessage> {
-        const document = await this.dataService.editDocument(documentEditDto)
-        return { document: document }
+    async editDocument(editDocumentDtoMessage: EditDocumentDtoMessage, metadata: Metadata, call: ServerUnaryCall<any, any>): Promise<EditDocumentMessage> {
+        return this.dataService.editDocument(editDocumentDtoMessage)
     }
 
     @GrpcMethod('DataService', 'DeleteDocument')

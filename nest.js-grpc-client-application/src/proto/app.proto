@@ -5,11 +5,11 @@ package app;
 service DataService {
   rpc CreateCategory (CategoryMessage) returns (CategoryMessage) {}
   rpc GetCategories (GetCategories) returns (Categories) {}
-  rpc EditCategory (Category) returns (Category) {}
+  rpc EditCategory (CategoryMessage) returns (CategoryMessage) {}
   rpc DeleteCategory (CategoryId) returns (DeleteCategory) {}
   rpc CreateDocument (DocumentMessage) returns (DocumentMessage) {}
   rpc GetDocuments (GetDocuments) returns (Documents) {}
-  rpc EditDocument (Document) returns (Document) {}
+  rpc EditDocument (DocumentMessage) returns (DocumentMessage) {}
   rpc DeleteDocument (DocumentId) returns (DeleteDocument) {}
 }
 
@@ -29,7 +29,7 @@ message CategoryId {
 }
 
 message Categories {
-  Category categories = 1;
+  repeated Category categories = 1;
 }
 
 message GetCategories {}
@@ -55,7 +55,7 @@ message DocumentId {
 }
 
 message Documents {
-  Document documents = 1;
+  repeated Document documents = 1;
 }
 
 message GetDocuments {}

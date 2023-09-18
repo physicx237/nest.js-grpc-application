@@ -1,5 +1,5 @@
-import { UpdateResult } from "typeorm"
+import { Category } from "../entities/category.entity"
 
 export type EditCategoryMessage = {
-    category: UpdateResult
+    category: Category
 }
